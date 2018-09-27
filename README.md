@@ -5,6 +5,22 @@
 [appurl]: https://www.duplicati.com
 [hub]: https://hub.docker.com/r/linuxserver/duplicati/
 
+# Modified
+
+Modified by Ted Carnahan for my particular needs, many thanks to the
+LinuxServer.io folks for providing good ground to build on.
+
+* Runs duplicati on port 80 (so that I can give my container a unique IP
+  address via macvlan)
+* Does not limit itself to the most recent tag in the release or beta
+  categories. This requires you to specify the duplicati version number in 
+  order to build, for example:
+  
+```
+docker build --build-arg DUPLICATI_TAG=v2.0.3.10-2.0.3.10_canary_2018-08-30
+```
+
+
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
 The [LinuxServer.io][linuxserverurl] team brings you another container release featuring easy user mapping and community support. Find us for support at:
