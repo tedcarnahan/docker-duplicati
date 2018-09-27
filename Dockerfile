@@ -19,5 +19,4 @@ RUN echo "**** install duplicati ****" \
 COPY root/ /
 
 # ports and volumes
-EXPOSE 8200
 VOLUME /backups /config /source
