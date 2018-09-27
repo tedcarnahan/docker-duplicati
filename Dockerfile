@@ -1,6 +1,6 @@
 FROM lsiobase/mono:xenial
 
-ARG DUPLICATI_TAG="v2.0.3.10-2.0.3.10_canary_2018-08-30"
+ARG DUPLICATI_TAG
 ENV HOME="/config"
 
 RUN echo "**** install duplicati ****" \
