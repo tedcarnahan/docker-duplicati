@@ -4,15 +4,11 @@ ARG DUPLICATI_TAG
 ENV HOME="/config"
 
 RUN echo "**** install duplicati ****" \
- && curl \
-      -o /tmp/duplicati.zip \
-      -L "https://github.com/duplicati/duplicati/releases/download/${DUPLICATI_TAG}/duplicati-$(echo $DUPLICATI_TAG | sed -e 's/^[^-]*-//' ).zip" \
- && unzip \
-      -q /tmp/duplicati.zip \
-      -d /app/duplicati \
+ && export DUPLICATI_URL=https://github.com/duplicati/duplicati/releases/download/${DUPLICATI_TAG}/duplicati-${DUPLICATI_TAG#*-}.zip \
+ && curl  -o /tmp/duplicati.zip -L $DUPLICATI_URL \
+ && unzip -q /tmp/duplicati.zip -d /app/duplicati \
  && echo "**** cleanup ****" \
- && rm -rf \
-	  /tmp/*
+ && rm -rf /tmp/*
 
 # copy local files
 COPY root/ /
