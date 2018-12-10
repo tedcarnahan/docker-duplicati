@@ -7,4 +7,4 @@ cd /app/duplicati || exit
       Duplicati.Server.exe \
 	    --webservice-interface=any \
         --server-datafolder=/config \
-        --webservice-port=80
+        --webservice-port=${DUPLICATI_PORT}
